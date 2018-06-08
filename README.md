@@ -14,6 +14,7 @@
         * return 문이 없으면 가장 마지막 문장을 리턴하게 됨.
 ###    4. sinatra를 이용한 web 요청
     * get 메소드 사용. 자바에서는 {}를 사용했지만 루비는 do end사용
+    * post 메소드를 통해 form의 method="POST"로 지정한 것과 같은 효과를 볼 수 있다.
     * mapping : '/name' 과 같이 매핑가능.
     * 관련 내용은 sinatra.rb파일 확인.
     * ""사이에 html태그를 사용하여 html코드를 넣을 수 있음.
@@ -27,7 +28,14 @@
         - view layer에서 변수를 view파일에서 사용하고 싶은 경우 @를 붙여야 한다.
             >> @name = params[:name]
             >> view에서 사용시 : <%= @name %>
+        - <% %>는 코드, <%= %> 는 표현식으로 사용가능. JSP와 같음.
         - erb파일을 전송시에는 senf_file을 보통 사용하지 않음. erb : 파일명으로 사용함.(.erb로 전송하지 않음. 파일명만 보냄)
+    * 서버 시작 커맨드 : ruby 파일명 -o $IP -p $PORT (c9에서 사용)
+    * redirect
+        - URL 리다이렉션(URL redirection← URL 넘겨주기)은 이용 가능한 웹 페이지를 하나 이상의 URL 주소로 만들어주는 월드 와이드 웹 기법이다. URL 포워딩(URL forwarding)이라고도 한다. 넘겨받은 URL을 웹 브라우저가 열려고 하면 다른 URL의 문서가 열리게 된다.
+        - get방식으로만 작동한다. 따라서 get method로 해당 url에 구현해 놓아야만 한다. day3/app.rb파일 참조
+    * url encode
+        - 한글과 같은 경우 parameter전달 시 encoding이 필요하다. uri library를 import한 다음, uri.encoding메소드로 인코딩한다.
 ###    5. 반복문
         * each, for, 숫자로 사용
             1) 배열객체.each |x|
@@ -71,5 +79,12 @@
         * : --> symbol
             - :name이라고 하면 name이라는 변수를 의미.
 ###    9. 일부 라이브러리
-        * HTTParty
+        * HTTParty(웹 scrapping 가능)
+            - get : 메소드 인자로 url을 주어 웹 페이지 정보를 읽을 수 있다.
         * Nokogiri : HTML Parsing
+            - Nokogiri::HTML.parse() : HTML코드로 parsing
+            - css : 선택자 가져올 수 있다. (.first, .second와 같은 예약어로 직관적으로 특정 선택자를 가져올 수 있다.)
+        * RestClient : HTTParty와 같은 역할
+            - get : HTTParty와 같음
+        * URI
+            - encode : encoding해주는 메소드
