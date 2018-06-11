@@ -73,8 +73,8 @@ get '/check_file' do
                puts row
            end
         end
-        erb :check_file
-       
+        
+        
     else
         @webtoons = []
         # 존재하는 CSV 파일을 불러오는 코드
@@ -90,4 +90,51 @@ end
 # 아래와 같이 사용하면 parameter로 전달가능.
 get '/board/:name' do
     puts params[:name]
+end
+
+
+get '/check_naver_toon' do
+    
+    #puts params[:week].eql?(nil)
+    
+    unless params[:week].eql?(nil)
+        
+        toons = []
+        
+        unless File.file?("./naver_toon_#{params[:week]}.csv")
+            puts "파일이 없습니다."
+        
+            url = RestClient.get("http://m.comic.naver.com/webtoon/weekday.nhn?week=#{params[:week]}")
+            result = Nokogiri::HTML(url)
+            
+            image = result.css("span.im_br > img")
+            title = result.css("span.toon_name > strong")
+            link = result.css("div.lst > a")
+            
+            #puts link[0]["href"]
+        
+            title.each_with_index do |toon, index|
+                #puts [index.to_i + 1,  image[index]["src"], title[index].text, link[index]["href"]]
+                toons << [index.to_i + 1,  image[index]["src"], title[index].text, link[index]["href"]]
+            end
+            #puts toon_name
+            
+            
+            CSV.open("./naver_toon_#{params[:week]}.csv", "w+") do |row|
+                toons.each_with_index do |toon, index|
+                    row << toons[index]
+                end
+            end
+            
+            redirect "/check_naver_toon?week=#{params[:week]}"
+            
+        # 파일이 있는 경우
+        else
+            @webtoons = []
+            CSV.open("./naver_toon_#{params[:week]}.csv", "r").each do |row|
+                @webtoons << row
+            end
+        end
+    end
+    erb :naver_toon
 end

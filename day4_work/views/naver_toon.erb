@@ -1,0 +1,56 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <h2>요일별 웹툰 가져오기</h2>
+        <form>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>일</th>
+                        <th>월</th>
+                        <th>화</th>
+                        <th>수</th>
+                        <th>목</th>
+                        <th>금</th>
+                        <th>토</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="radio" name="week" value="sun" margin="auto"></td>
+                        <td><input type="radio" name="week" value="mon"></td>
+                        <td><input type="radio" name="week" value="tue"></td>
+                        <td><input type="radio" name="week" value="wed"></td>
+                        <td><input type="radio" name="week" value="thu"></td>
+                        <td><input type="radio" name="week" value="fri"></td>
+                        <td><input type="radio" name="week" value="sat"></td>
+                    </tr>
+                </tbody>
+                
+            </table>
+            <br/>
+            <input type="submit" value="가져오기">
+            
+            <table class="table">
+                <tr>
+                    <th>번호</th>
+                    <th>이미지</th>
+                    <th>제목</th>
+                    <th>링크</th>
+                </tr>
+                <% @webtoons.each do |toon| %>
+                    <tr>
+                        <td><%= toon[0] %></td>
+                        <td><img src="<%= toon[1] %>"></td>
+                        <td><%= toon[2] %></td>
+                        <td><a href="<%= toon[3] %>">보러가기</a></td>
+                    </tr>
+                <% end %>
+                
+            </table>
+            
+        </form>
+    </body>
+</html>

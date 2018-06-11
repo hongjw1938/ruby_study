@@ -15,24 +15,24 @@ puts "이번 주 추천 번호는 " + lotto.to_s + " 입니다."
 
 #미세먼지 알아보기
 require 'httparty'
-url = URI.encode("http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?stationName=강남구&dataTerm=MONTH&numOfRows=100&ServiceKey=")+key
-response = HTTParty.get(url)
-dust = response['response']['body']['items']['item'][0]['pm10Value']
+# url = URI.encode("http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?stationName=강남구&dataTerm=MONTH&numOfRows=100&ServiceKey=")+key
+# response = HTTParty.get(url)
+# dust = response['response']['body']['items']['item'][0]['pm10Value']
 
 
-case dust.to_i
-  when 0..30
-    then puts "현재 미세먼지 농도는 " + dust + " 좋음"
-  when 30..80
-    then puts "현재 미세먼지 농도는 " + dust + " 보통"
-  when 80..150
-    then puts "현재 미세먼지 농도는 " + dust + " 나쁨"
-  else
-    puts "현재 미세먼지 농도는 " + dust + " 매우 나쁨"
-end
+# case dust.to_i
+#   when 0..30
+#     then puts "현재 미세먼지 농도는 " + dust + " 좋음"
+#   when 30..80
+#     then puts "현재 미세먼지 농도는 " + dust + " 보통"
+#   when 80..150
+#     then puts "현재 미세먼지 농도는 " + dust + " 나쁨"
+#   else
+#     puts "현재 미세먼지 농도는 " + dust + " 매우 나쁨"
+# end
   
-#코스피 지수 알아오기
-require 'httparty'
+# #코스피 지수 알아오기
+# require 'httparty'
 
 #HTML parsing library
 require 'nokogiri'

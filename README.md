@@ -51,6 +51,10 @@
             1) 배열객체.each |x|
                 puts x
               end
+                - 객체.each_with_index |x, index|
+                    
+                  end
+                    >> 해당 코드를 통해 index도 뽑아낼 수 있다.
             2) for i in 배열객체
                 ..
                end
