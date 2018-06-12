@@ -46,6 +46,9 @@
         - layout에 css 링크를 써놓으면 body태그에서 yield했을 때, 원래 코드에서 해당 css를 사용할 수 있다.
         - 참조 : day4_work/app.rb확인
         - workspace/app/views/layout/application.html.erb에 css, javascript를 지정가능
+    * wildcard
+        - day5/app.rb에서 /wildcard부분 참조
+        - :변수 --> 를 사용해 url에 직접적으로 parameter를 전달할 수 있다.
 ###    5. 반복문
         * each, for, 숫자로 사용
             1) 배열객체.each |x|
@@ -167,3 +170,14 @@
         * app/assets에서 해당 파일을 읽어들인다.
             >> 이후에 application.html.erb에서 지정할 수 있다.
         * 추후에 추가할 것.
+###     12. CRUD (day5)
+        * 구성
+            - CRUD 작업
+            - 자료가 저장되는 곳은 DB가 아닌 CSV파일로 저장
+            - 사용자의 입력을 받아 간이 게시판 제작
+            - getbootstrap.com -> get started -> css 및 js copy -> layout head에 paste
+            - CSV에 게시판 내용 저장 및 읽어오기. wildcard를 이용해 url로 게시판 글 직접 접속
+            - user등록을 위한 csv 파일 생성
+                >> id, password, password_confirmation
+                >> 조건 1 : password, password_confirmation이 다르면 회원 등록 불가
+                
