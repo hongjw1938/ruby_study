@@ -40,14 +40,17 @@
                     <th>제목</th>
                     <th>링크</th>
                 </tr>
-                <% @webtoons.each do |toon| %>
+                
+                <% unless @webtoons.nil?
+                        @webtoons.each do |toon| %>
                     <tr>
                         <td><%= toon[0] %></td>
                         <td><img src="<%= toon[1] %>"></td>
                         <td><%= toon[2] %></td>
                         <td><a href="<%= toon[3] %>">보러가기</a></td>
                     </tr>
-                <% end %>
+                <%     end 
+                  end%>
                 
             </table>
             

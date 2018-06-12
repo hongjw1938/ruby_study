@@ -135,6 +135,8 @@ get '/check_naver_toon' do
                 @webtoons << row
             end
         end
+    else
+        erb :naver_toon
     end
     erb :naver_toon
 end
