@@ -89,6 +89,14 @@
             - (1..3).to_a는 배열 생성 == *(1..3)
         * send_file : sinatra의 메소드
             - 파일을 전송.
+        * length
+            - 객체의 길이를 구함
+            - ex) "HAHAHA".length >> 6
+        * reverse 
+            - spits out the backward version of the object
+            - puts "HAHAHA".reverse >> AHAHAH
+        * upcase, downcase
+            - 단어를 대,소문자로 변경
 ###    8. 기본 문법
         * #{}사용
             - ""사이에 String을 집어을 때 #{}를 이용하여 변수를 넣을 수 있음.(''는 불가)
