@@ -97,6 +97,11 @@
             - puts "HAHAHA".reverse >> AHAHAH
         * upcase, downcase
             - 단어를 대,소문자로 변경
+        * gets
+            - java의 scanner와 같이 user로부터 받는 내용을 input할 수 있다.
+        * chomp
+            - extra line을 제거한다.
+        * capitalize!, upcase! : upper case변환, 후자는 전체 변환
 ###    8. 기본 문법
         * #{}사용
             - ""사이에 String을 집어을 때 #{}를 이용하여 변수를 넣을 수 있음.(''는 불가)
