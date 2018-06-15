@@ -58,6 +58,7 @@
                     
                   end
                     >> 해당 코드를 통해 index도 뽑아낼 수 있다.
+                    >> 만약 each가 아닌 reverse를 사용하면 역순으로 순환한다.
             2) for i in 배열객체
                 ..
                end
