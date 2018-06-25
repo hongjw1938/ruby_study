@@ -15,7 +15,7 @@
             - require 'sinatra-reloader'로 import가능
         * gem uninstall sinatra : sinatra gem을 지울 수 있음. 여러 버젼이 설치된 경우 각각이 모두 나옴
 ###    3. 루비의 리턴문
-        * return 문이 없으면 가장 마지막 문장을 리턴하게 됨.
+        * return 문이 없으면 가장 마지막 문장의 계산을 리턴하게 됨.
 ###    4. sinatra를 이용한 web 요청
     * get 메소드 사용. 자바에서는 {}를 사용했지만 루비는 do end사용
     * post 메소드를 통해 form의 method="POST"로 지정한 것과 같은 효과를 볼 수 있다.
